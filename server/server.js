@@ -30,14 +30,12 @@ express()
         //  this will be used to auto-complete the ingredient search
 
     .get("/test", (req,res) => {
-
-            res
-                .status(200)
-                .json({
-                    message: "it worked;",
-                    status: 200
-                })
-            
+        res
+            .status(200)
+            .json({
+                message: "it worked;",
+                status: 200
+            })
     })
 
 
