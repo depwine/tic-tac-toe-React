@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-
+import Profile from "../main/Profile";
 import {useAuth0} from "@auth0/auth0-react";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Container>
     </BrowserRouter>
