@@ -7,7 +7,10 @@ import { UserContext } from "../core/UserContext";
 const Grid = () => {
 
     const { gridElements, setGridElements} = useContext(UserContext);
-    const { turn, setTurn } = useContext(UserContext)
+    const { turn } = useContext(UserContext)
+
+    const {gameOver } = useContext(UserContext)
+    const {gameWin } =  useContext(UserContext)
 
     /*
 
@@ -22,8 +25,7 @@ const Grid = () => {
 
     useEffect(() => {
 
-        console.log(gridElements)
-        console.log("turn:", turn)
+        console.log(gridElements)         
 
     }, [turn])
 
@@ -33,7 +35,10 @@ const Grid = () => {
                 gridElements.map((elem, index) => {
 
                     return (
-                        <SingleSquare key = {index} element = {elem} turn = {turn} index = {index} />
+
+                        gameOver || gameWin
+                        ? <SingleSquare key = {index} element = {elem} turn = {turn} index = {index} disabled={true}/>
+                        : <SingleSquare key = {index} element = {elem} turn = {turn} index = {index} disabled={false}/>
                     )
 
                 })
